@@ -1,7 +1,7 @@
 const sliceName = `kebabCase sliceName`
 const componentTypeName = `Page{{@pascalCase sliceName}}Props`
 
-exports.PAGE_ACTIONS = [
+module.exports.PAGE_ACTIONS = [
   {
     type: 'add',
     path: `src/{{layerFolder}}/{{${sliceName}}}/ui/{{${sliceName}}}/{{${sliceName}}}.tsx`,
