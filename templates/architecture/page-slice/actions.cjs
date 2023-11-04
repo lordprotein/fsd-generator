@@ -1,27 +1,28 @@
 const sliceName = `kebabCase sliceName`
+const componentTypeName = `Page{{@pascalCase sliceName}}Props`
 
-export const ENTITY_ACTIONS = [
+exports.PAGE_ACTIONS = [
   {
     type: 'add',
     path: `src/{{layerFolder}}/{{${sliceName}}}/ui/{{${sliceName}}}/{{${sliceName}}}.tsx`,
-    templateFile: 'templates/architecture/general-slice/component.hbs',
+    templateFile: 'templates/architecture/page-slice/component.hbs',
 
     data: {
-      componentTypeName: `{{@pascalCase sliceName}}Props`
+      componentTypeName
     }
   },
   {
     type: 'add',
     path: `src/{{layerFolder}}/{{${sliceName}}}/ui/{{${sliceName}}}/{{${sliceName}}}.types.ts`,
-    templateFile: 'templates/architecture/general-slice/types.hbs',
+    templateFile: 'templates/architecture/page-slice/types.hbs',
     data: {
-      componentTypeName: `{{@pascalCase sliceName}}Props`
+      componentTypeName
     }
   },
   {
     type: 'add',
     path: `src/{{layerFolder}}/{{${sliceName}}}/ui/{{${sliceName}}}/{{${sliceName}}}.styled.ts`,
-    templateFile: 'templates/architecture/general-slice/styled.hbs'
+    templateFile: 'templates/architecture/page-slice/styled.hbs'
   },
   {
     type: 'add',
