@@ -1,7 +1,9 @@
+const { getRootPath } = require('../../../utils/get-root-path')
+
 exports.ENTITY_ACTIONS = ({ fileName, layerName }) => [
   {
     type: 'add',
-    path: `src/${layerName}/${fileName}/ui/${fileName}/${fileName}.tsx`,
+    path: `${getRootPath()}/${layerName}/${fileName}/ui/${fileName}/${fileName}.tsx`,
     templateFile: 'templates/architecture/general-slice/component.hbs',
 
     data: {
@@ -10,7 +12,7 @@ exports.ENTITY_ACTIONS = ({ fileName, layerName }) => [
   },
   {
     type: 'add',
-    path: `src/${layerName}/${fileName}/ui/${fileName}/${fileName}.types.ts`,
+    path: `${getRootPath()}/${layerName}/${fileName}/ui/${fileName}/${fileName}.types.ts`,
     templateFile: 'templates/architecture/general-slice/types.hbs',
     data: {
       componentTypeName: `${fileName}Props`
@@ -18,22 +20,22 @@ exports.ENTITY_ACTIONS = ({ fileName, layerName }) => [
   },
   {
     type: 'add',
-    path: `src/${layerName}/${fileName}/ui/${fileName}/${fileName}.styled.ts`,
+    path: `${getRootPath()}/${layerName}/${fileName}/ui/${fileName}/${fileName}.styled.ts`,
     templateFile: 'templates/architecture/general-slice/styled.hbs'
   },
   {
     type: 'add',
-    path: `src/${layerName}/${fileName}/ui/${fileName}/index.ts`,
+    path: `${getRootPath()}/${layerName}/${fileName}/ui/${fileName}/index.ts`,
     template: `export * from './${fileName}'`
   },
   {
     type: 'add',
-    path: `src/${layerName}/${fileName}/ui/index.ts`,
+    path: `${getRootPath()}/${layerName}/${fileName}/ui/index.ts`,
     template: `export * from './${fileName}'`
   },
   {
     type: 'add',
-    path: `src/${layerName}/${fileName}/index.ts`,
+    path: `${getRootPath()}/${layerName}/${fileName}/index.ts`,
     template: `export * from './ui'`
   }
 ]

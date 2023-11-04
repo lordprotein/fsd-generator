@@ -10,13 +10,13 @@ const generatorAddFeature = (
     prompts: [
       {
         type: 'input',
-        name: 'inputSliceNameValue',
+        name: 'sliceName',
         message: 'Enter slice name of Feature'
       }
     ],
     actions: function () {
       return ENTITY_ACTIONS({
-        fileName: `{{kebabCase inputSliceNameValue}}`,
+        fileName: `{{kebabCase sliceName}}`,
         layerName: `features`
       })
     }

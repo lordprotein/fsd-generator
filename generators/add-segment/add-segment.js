@@ -1,4 +1,5 @@
 const { findSliceFolder } = require('../../utils/find-slice-folder')
+const { getRootPath } = require('../../utils/get-root-path')
 
 const generatorAddSegment = (
   /** @type {import('plop').NodePlopAPI} */ plop
@@ -6,17 +7,6 @@ const generatorAddSegment = (
   plop.setGenerator('add_segment', {
     description: 'add new Segment (ui/lib/model) instance to selected Slice',
     prompts: [
-      {
-        type: 'list',
-        name: 'segmentType',
-        message: 'Select segment type:',
-        choices: ['ui', 'lib', 'model']
-      },
-      {
-        type: 'input',
-        name: 'segmentNameValue',
-        message: `Write name of segment item:`
-      },
       {
         type: 'list',
         name: 'layersList',
@@ -36,12 +26,23 @@ const generatorAddSegment = (
           }
 
           answers.foundSlicePath = findSliceFolder(
-            `src/${folderNames[answers.layersList]}`,
+            `${getRootPath()}/${folderNames[answers.layersList]}`,
             input
           )
 
           return !!answers.foundSlicePath
         }
+      },
+      {
+        type: 'list',
+        name: 'segmentType',
+        message: 'Select segment type:',
+        choices: ['ui', 'lib', 'model']
+      },
+      {
+        type: 'input',
+        name: 'segmentNameValue',
+        message: `Write name of segment item:`
       },
       {
         type: 'list',

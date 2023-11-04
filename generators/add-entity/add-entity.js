@@ -8,7 +8,7 @@ const generatorAddEntity = (/** @type {import('plop').NodePlopAPI} */ plop) => {
     prompts: [
       {
         type: 'input',
-        name: 'inputSliceNameValue',
+        name: 'sliceName',
         message: 'Enter slice name of Entities'
       }
 
@@ -16,7 +16,7 @@ const generatorAddEntity = (/** @type {import('plop').NodePlopAPI} */ plop) => {
     ],
     actions: function () {
       return ENTITY_ACTIONS({
-        fileName: `{{kebabCase inputSliceNameValue}}`,
+        fileName: `{{kebabCase sliceName}}`,
         layerName: `entities`
       })
     }

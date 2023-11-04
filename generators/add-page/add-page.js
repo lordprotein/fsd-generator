@@ -8,7 +8,7 @@ const generatorAddPage = (/** @type {import('plop').NodePlopAPI} */ plop) => {
     prompts: [
       {
         type: 'input',
-        name: 'inputSliceNameValue',
+        name: 'sliceName',
         message: 'Enter slice name of Pages'
       },
       {
