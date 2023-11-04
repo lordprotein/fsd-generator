@@ -1,3 +1,5 @@
+const { readFileSync } = require('fs')
+
 const { findSliceFolder } = require('../../utils/find-slice-folder')
 const { getRootPath } = require('../../utils/get-root-path')
 
@@ -50,7 +52,14 @@ const generatorAddSegment = (
         message: (answer) =>
           `Would you set "${answer.segmentListValue}" import as public (import will be set on Slice level)?`,
         choices: ['no', 'yes'],
-        default: 0
+        default: 0,
+        when: (answers) => {
+          const path = `${answers.foundSlicePath}/index.ts`
+          const hasImport = readFileSync(path, 'utf8').includes(
+            `${plop.getHelper('camelCase')(answers.segmentListValue)}Model`
+          )
+          return !hasImport
+        }
       }
     ],
     actions: function (data) {
@@ -74,11 +83,7 @@ const generatorAddSegment = (
             type: 'add',
             path: `${data.foundSlicePath}/ui/${formattedSegmentName}/${formattedSegmentName}.tsx`,
             templateFile: 'templates/architecture/general-slice/component.hbs',
-
             data: {
-              componentTypeName: `${plop.getHelper('pascalCase')(
-                data.segmentNameValue
-              )}Props`,
               sliceName: `${data.segmentNameValue}`
             }
           },
@@ -87,9 +92,6 @@ const generatorAddSegment = (
             path: `${data.foundSlicePath}/ui/${formattedSegmentName}/${formattedSegmentName}.types.ts`,
             templateFile: 'templates/architecture/general-slice/types.hbs',
             data: {
-              componentTypeName: `${plop.getHelper('pascalCase')(
-                data.segmentNameValue
-              )}Props`,
               sliceName: `${data.segmentNameValue}`
             }
           },
@@ -151,6 +153,35 @@ const generatorAddSegment = (
                   template: `export { ${plop.getHelper('camelCase')(
                     data.segmentNameValue
                   )} } from './${data.segmentType}'`
+                }
+              ]
+            : [])
+        ],
+        model: [
+          {
+            type: 'add',
+            path: `${data.foundSlicePath}/${data.segmentType}/${formattedSegmentName}/${formattedSegmentName}.ts`,
+            template: `export const ${data.segmentNameValue} = {}`
+          },
+          {
+            type: 'add',
+            path: `${data.foundSlicePath}/${data.segmentType}/${formattedSegmentName}/index.ts`,
+            template: `export * from './${formattedSegmentName}'`
+          },
+          ...(isPublic
+            ? [
+                {
+                  type: 'add',
+                  path: `${data.foundSlicePath}/index.ts`,
+                  template: ``,
+                  skipIfExists: true
+                },
+                {
+                  type: 'append',
+                  path: `${data.foundSlicePath}/index.ts`,
+                  template: `export * as ${plop.getHelper('camelCase')(
+                    data.segmentListValue
+                  )}Model from './${data.segmentType}'`
                 }
               ]
             : [])
