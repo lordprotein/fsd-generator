@@ -1,10 +1,8 @@
+const { existsSync } = require('fs')
 const path = require('path')
 
 module.exports.getRootPath = () => {
-  const rootPath = path.join(__dirname, '..', '..', '..', '..')
-
-  console.log(rootPath)
-  const isLib = false
-
-  return isLib ? rootPath : 'src'
+  return existsSync(path.resolve(__dirname, '../../yarn.lock'))
+    ? 'src'
+    : path.join(__dirname, '..', '..', '..', '..', 'src')
 }

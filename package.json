@@ -1,11 +1,17 @@
 {
   "name": "fsd-codegen",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "plopfile.js",
+  "files": ["generators", "templates", "utils", "README.md", "bin/*"],
   "type": "commonjs",
   "author": "lordprotein",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "npx plop"
+  },
+  "bin": {
+    "fsd-codegen": "./bin/start.js"
+  },
   "dependencies": {
     "plop": "^4.0.0"
   },
