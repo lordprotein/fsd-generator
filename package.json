@@ -1,6 +1,6 @@
 {
-  "name": "fsd-codegen",
-  "version": "1.0.0",
+  "name": "fsd-codegenerator",
+  "version": "0.0.1",
   "main": "plopfile.js",
   "files": ["generators", "templates", "utils", "README.md", "bin/*"],
   "type": "commonjs",
@@ -10,7 +10,7 @@
     "start": "npx plop"
   },
   "bin": {
-    "fsd-codegen": "./bin/start.js"
+    "fsdgen": "./bin/start.js"
   },
   "dependencies": {
     "plop": "^4.0.0"
