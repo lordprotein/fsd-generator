@@ -1,0 +1,31 @@
+import { createSlice, PayloadAction  } from '@reduxjs/toolkit'
+
+import { {{pascalCase reduxSliceName}}State } from './types'
+
+export const initialState: {{pascalCase reduxSliceName}}State = {
+    data: {}
+}
+
+const {{camelCase reduxSliceName}}Slice = createSlice({
+    name: '{{camelCase reduxSliceName}}',
+    initialState,
+    reducers: {
+        // reset(state, { payload }: PayloadAction<number>) {
+        //    state.data.someValue = payload
+        // }
+    }
+    // extraReducers: (builder) => {
+    //   builder.addMatcher(
+    //     api.endpoints.template.matchFulfilled,
+    //     (state, action) => {
+    //       console.log(action)
+    //     }
+    //   )
+    // }
+})
+
+export const {
+    actions: {{camelCase reduxSliceName}}Actions,
+    name: sliceKey,
+    reducer
+} = {{camelCase reduxSliceName}}Slice
