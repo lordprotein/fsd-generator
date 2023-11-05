@@ -20,7 +20,7 @@ yarn add -D fsd-codegenerator
 For macOS, Linux
 
 ```
-(yarn | npm | npx) fsdgen
+fsdgen
 ```
 
 For Windows
@@ -33,22 +33,38 @@ npx fsdgen
 
 ## Workflow
 
+### Base file structure
+
+```
+src/
+├── entities/
+├── features/
+├── widgets/
+├── pages/
+├── shared/
+│   ├── ui/
+│   ├── lib/
+│   └── types/
+```
+
+This file structure is necessary for the generator to work correctly.
+If any of the folders are missing in your architecture and you generate something related to it,
+the generator will automatically create it.
+
 ### Add Slice of Layout
 
-1. Run
-```
-yarn fsdgen
-```
+1. Start generator (see **Start** part above)
 
 2. Select the layer to which you want to add a new slice
 
 ```
-? Hello! Choose generator 
-  add_segment - add new Segment (ui/lib/model) instance to selected Slice 
-❯ add_entity - add new Entity slice instance 
-  add_feature - add new Feature slice instance 
-  add_widget - Add new Widget slice instance 
-  add_page - add new Page slice instance 
+? [FSD-codegen] Please choose a generator 
+  slice-segment - add new segment (ui/lib/model) instance to selected slice 
+❯ entity-slice - add new entity slice instance 
+  feature-slice - add new feature slice instance 
+  widget-slice - add new Widget slice instance 
+  page-slice - add new page slice instance 
+  shared-segment - add new shared segment item 
 ```
 
 3. Follow next steps
@@ -56,29 +72,26 @@ yarn fsdgen
 
 ### Add Segment (ui, lib, model) of slice
 
-1. Run:
-```
-yarn fsdgen
-```
+1. Start generator (see **Start** part above)
 2. Select "add segment":
 ```
-? Hello! Choose generator 
-❯ add_segment - add new Segment (ui/lib/model) instance to selected Slice 
-  add_entity - add new Entity slice instance 
-  add_feature - add new Feature slice instance 
-  add_widget - Add new Widget slice instance 
-  add_page - add new Page slice instance 
+? [FSD-codegen] Please choose a generator 
+❯ slice-segment - add new segment (ui/lib/model) instance to selected slice 
+  entity-slice - add new entity slice instance 
+  feature-slice - add new feature slice instance 
+  widget-slice - add new Widget slice instance 
+  page-slice - add new page slice instance 
+  shared-segment - add new shared segment item 
 ```
 
 3. Select the **Layer** that contains your **Slice** where you want to add a **Segment**:
 ```
-? Hello! Choose generator add_segment - add new Segment (ui/lib/model) instance to selected Slice
+? [FSD-codegen] Please choose a generator slice-segment - add new segment (ui/lib/model) instance to selected slice
 ? Select layer where will be added segment: (Use arrow keys)
 ❯ entity 
   feature 
   widget 
   page 
-
 ```
 
 4. Enter the name of your **Slice** located in the chosen **Layer**:
@@ -87,16 +100,16 @@ yarn fsdgen
 > Additionally, you can also enter a nested Slice within a parent group. For example: entities/card/[info | win | block]
 
 ```
-? Hello! Choose generator add_segment - add new Segment (ui/lib/model) instance to selected Slice
+? [FSD-codegen] Please choose a generator slice-segment - add new segment (ui/lib/model) instance to selected slice
 ? Select layer where will be added segment: entity
-? Write name of entity slice: card-payment
+? Enter entity slice name where will be added segment: card-info
 ```
 
 5. Choose the type of Segment
 ```
-? Hello! Choose generator add_segment - add new Segment (ui/lib/model) instance to selected Slice
+? [FSD-codegen] Please choose a generator slice-segment - add new segment (ui/lib/model) instance to selected slice
 ? Select layer where will be added segment: entity
-? Write name of entity slice: card-payment
+? Enter entity slice name where will be added segment: card-info
 ? Select segment type: (Use arrow keys)
 ❯ ui 
   lib 
@@ -105,26 +118,26 @@ yarn fsdgen
 
 6. Select the name for the Segment
 ```
-? Hello! Choose generator add_segment - add new Segment (ui/lib/model) instance to selected Slice
+? [FSD-codegen] Please choose a generator slice-segment - add new segment (ui/lib/model) instance to selected slice
 ? Select layer where will be added segment: entity
-? Write name of entity slice: card-payment
+? Enter entity slice name where will be added segment: card-info
 ? Select segment type: ui
-? Write name of segment item: title
+? Enter segment name: footer
 ```
 
 7. Do you want your Segment to be added to the [public API import](https://feature-sliced.design/docs/reference/public-api)?
 
 ```
-? Hello! Choose generator add_segment - add new Segment (ui/lib/model) instance to selected Slice
+? [FSD-codegen] Please choose a generator slice-segment - add new segment (ui/lib/model) instance to selected slice
 ? Select layer where will be added segment: entity
-? Write name of entity slice: card-payment
+? Enter entity slice name where will be added segment: card-info
 ? Select segment type: ui
-? Write name of segment item: title
-? Would you set "card-payment" import as public (import will be set on Slice level)? 
+? Enter segment name: footer
+? Would you set "card-info" import as public (import will be set on Slice level)? 
   no 
 ❯ yes 
 ```
-
+8. After completion, files will be created according to your choice
 
 
 

@@ -5,13 +5,13 @@ const {
 const generatorAddFeature = (
   /** @type {import('plop').NodePlopAPI} */ plop
 ) => {
-  plop.setGenerator('add_feature', {
-    description: 'add new Feature slice instance',
+  plop.setGenerator('feature-slice', {
+    description: 'add new feature slice instance',
     prompts: [
       {
         type: 'input',
         name: 'sliceName',
-        message: 'Enter slice name of Feature'
+        message: 'Enter slice name:'
       }
     ],
     actions: function () {

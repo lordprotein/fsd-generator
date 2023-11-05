@@ -6,8 +6,8 @@ const { getRootPath } = require('../../utils/get-root-path')
 const generatorAddSegment = (
   /** @type {import('plop').NodePlopAPI} */ plop
 ) => {
-  plop.setGenerator('add_segment', {
-    description: 'add new Segment (ui/lib/model) instance to selected Slice',
+  plop.setGenerator('slice-segment', {
+    description: 'add new segment (ui/lib/model) instance to selected slice',
     prompts: [
       {
         type: 'list',
@@ -18,7 +18,8 @@ const generatorAddSegment = (
       {
         type: 'input',
         name: 'segmentListValue',
-        message: (answers) => `Write name of ${answers.layersList} slice:`,
+        message: (answers) =>
+          `Enter ${answers.layersList} slice name where will be added segment:`,
         validate: function (input, answers) {
           const folderNames = {
             entity: 'entities',
@@ -44,7 +45,7 @@ const generatorAddSegment = (
       {
         type: 'input',
         name: 'segmentNameValue',
-        message: `Write name of segment item:`
+        message: `Enter segment name:`
       },
       {
         type: 'list',

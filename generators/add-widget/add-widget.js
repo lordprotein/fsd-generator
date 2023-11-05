@@ -3,13 +3,13 @@ const {
 } = require('../../templates/architecture/general-slice/actions')
 
 const generatorAddWidget = (/** @type {import('plop').NodePlopAPI} */ plop) => {
-  plop.setGenerator('add_widget', {
-    description: 'Add new Widget slice instance',
+  plop.setGenerator('widget-slice', {
+    description: 'add new Widget slice instance',
     prompts: [
       {
         type: 'input',
         name: 'sliceName',
-        message: 'Enter slice name of Widget'
+        message: 'Enter slice name:'
       }
     ],
     actions: function () {
