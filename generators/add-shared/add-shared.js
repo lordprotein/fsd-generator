@@ -2,12 +2,12 @@ const { getRootPath } = require('../../utils/get-root-path')
 
 const generatorAddShared = (/** @type {import('plop').NodePlopAPI} */ plop) => {
   plop.setGenerator('shared-segment', {
-    description: 'add new shared segment item',
+    description: 'add new shared segment instance',
     prompts: [
       {
         type: 'list',
         name: 'segment',
-        message: 'Select shared segment where will be added item:',
+        message: 'Select shared segment where will be added instance:',
         choices: ['lib', 'ui']
       },
       {

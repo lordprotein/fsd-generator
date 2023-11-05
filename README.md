@@ -64,7 +64,7 @@ the generator will automatically create it.
   feature-slice - add new feature slice instance 
   widget-slice - add new Widget slice instance 
   page-slice - add new page slice instance 
-  shared-segment - add new shared segment item 
+  shared-segment - add new shared segment instance 
 ```
 
 3. Follow next steps
@@ -81,7 +81,7 @@ the generator will automatically create it.
   feature-slice - add new feature slice instance 
   widget-slice - add new Widget slice instance 
   page-slice - add new page slice instance 
-  shared-segment - add new shared segment item 
+  shared-segment - add new shared segment instance 
 ```
 
 3. Select the **Layer** that contains your **Slice** where you want to add a **Segment**:
