@@ -1,8 +1,14 @@
 {
   "name": "fsd-codegenerator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "plopfile.js",
-  "files": ["generators", "templates", "utils", "README.md", "bin/*"],
+  "files": [
+    "generators",
+    "templates",
+    "utils",
+    "README.md",
+    "bin/*"
+  ],
   "type": "commonjs",
   "author": "lordprotein",
   "license": "MIT",
