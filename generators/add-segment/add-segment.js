@@ -13,11 +13,6 @@ export const generatorAddSegment = (
   plop.setGenerator('slice-segment', {
     description: 'add new segment (ui/lib/model) instance to selected slice',
     prompts: [
-      // {
-      //   type: 'file-tree-selection',
-      //   name: 'asd',
-      //   message: 'dadasas'
-      // },
       {
         type: 'list',
         name: 'layersList',
@@ -38,7 +33,9 @@ export const generatorAddSegment = (
           }
 
           answers.foundSlicePath = findSliceFolder(
-            `${getRootPath()}/${folderNames[answers.layersList]}`,
+            `${getRootPath(plop.getPlopfilePath())}/${
+              folderNames[answers.layersList]
+            }`,
             input
           )
 

@@ -27,9 +27,8 @@ export const generatorAddPage = (
     ],
     actions: function (data) {
       data.layerFolder = 'pages'
-      console.log(data)
 
-      return PAGE_ACTIONS
+      return PAGE_ACTIONS({ rootPath: plop.getPlopfilePath() })
     }
   })
 }

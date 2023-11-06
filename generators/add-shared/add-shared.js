@@ -23,38 +23,50 @@ export const generatorAddShared = (
         lib: [
           {
             type: 'add',
-            path: `${getRootPath()}/shared/lib/{{kebabCase sharedItemName}}/{{kebabCase sharedItemName}}.ts`,
+            path: `${getRootPath(
+              plop.getPlopfilePath()
+            )}/shared/lib/{{kebabCase sharedItemName}}/{{kebabCase sharedItemName}}.ts`,
             templateFile: 'templates/architecture/shared/lib/lib.hbs',
             data: { componentName: data.sharedItemName }
           },
           {
             type: 'add',
-            path: `${getRootPath()}/shared/lib/{{kebabCase sharedItemName}}/index.ts`,
+            path: `${getRootPath(
+              plop.getPlopfilePath()
+            )}/shared/lib/{{kebabCase sharedItemName}}/index.ts`,
             template: `export * from './{{kebabCase sharedItemName}}'`
           }
         ],
         ui: [
           {
             type: 'add',
-            path: `${getRootPath()}/shared/ui/{{kebabCase sharedItemName}}/{{kebabCase sharedItemName}}.tsx`,
+            path: `${getRootPath(
+              plop.getPlopfilePath()
+            )}/shared/ui/{{kebabCase sharedItemName}}/{{kebabCase sharedItemName}}.tsx`,
             templateFile: 'templates/architecture/shared/ui/component.hbs',
             data: { componentName: data.sharedItemName }
           },
           {
             type: 'add',
-            path: `${getRootPath()}/shared/ui/{{kebabCase sharedItemName}}/{{kebabCase sharedItemName}}.styled.ts`,
+            path: `${getRootPath(
+              plop.getPlopfilePath()
+            )}/shared/ui/{{kebabCase sharedItemName}}/{{kebabCase sharedItemName}}.styled.ts`,
             templateFile: 'templates/architecture/shared/ui/styled.hbs',
             data: { componentName: data.sharedItemName }
           },
           {
             type: 'add',
-            path: `${getRootPath()}/shared/ui/{{kebabCase sharedItemName}}/{{kebabCase sharedItemName}}.types.ts`,
+            path: `${getRootPath(
+              plop.getPlopfilePath()
+            )}/shared/ui/{{kebabCase sharedItemName}}/{{kebabCase sharedItemName}}.types.ts`,
             templateFile: 'templates/architecture/shared/ui/types.hbs',
             data: { componentName: data.sharedItemName }
           },
           {
             type: 'add',
-            path: `${getRootPath()}/shared/ui/{{kebabCase sharedItemName}}/index.ts`,
+            path: `${getRootPath(
+              plop.getPlopfilePath()
+            )}/shared/ui/{{kebabCase sharedItemName}}/index.ts`,
             template: `export * from './{{kebabCase sharedItemName}}'`
           }
         ]

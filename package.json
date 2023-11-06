@@ -6,17 +6,16 @@
     "generators",
     "templates",
     "utils",
-    "README.md",
-    "bin/*"
+    "README.md"
   ],
   "type": "module",
   "author": "lordprotein",
   "license": "MIT",
   "scripts": {
-    "start": "npx plop"
+    "start": "plop"
   },
   "bin": {
-    "fsdgen": "./bin/start.js"
+    "fsdgen": "./index.js"
   },
   "dependencies": {
     "inquirer-file-tree-selection-prompt": "^2.0.5",

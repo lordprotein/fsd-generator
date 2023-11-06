@@ -15,7 +15,8 @@ export const generatorAddFeature = (
     actions: function () {
       return ENTITY_ACTIONS({
         fileName: `{{kebabCase sliceName}}`,
-        layerName: `features`
+        layerName: `features`,
+        rootPath: plop.getPlopfilePath()
       })
     }
   })

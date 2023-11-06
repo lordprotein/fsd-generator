@@ -7,6 +7,7 @@ import { generatorAddShared } from './generators/add-shared/add-shared.js'
 
 export default function (plop) {
   plop.setWelcomeMessage('[FSD-codegen] Please choose a generator')
+
   generatorAddSegment(plop)
   generatorAddEntity(plop)
   generatorAddFeature(plop)

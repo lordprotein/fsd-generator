@@ -3,6 +3,8 @@ import { ENTITY_ACTIONS } from '../../templates/architecture/general-slice/actio
 export const generatorAddEntity = (
   /** @type {import('plop').NodePlopAPI} */ plop
 ) => {
+  console.log(plop.getPlopfilePath())
+
   plop.setGenerator('entity-slice', {
     description: 'add new entity slice instance',
     prompts: [
@@ -15,7 +17,8 @@ export const generatorAddEntity = (
     actions: function () {
       return ENTITY_ACTIONS({
         fileName: `{{kebabCase sliceName}}`,
-        layerName: `entities`
+        layerName: `entities`,
+        rootPath: plop.getPlopfilePath()
       })
     }
   })
