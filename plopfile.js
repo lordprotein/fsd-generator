@@ -1,13 +1,12 @@
-const { generatorAddEntity } = require('./generators/add-entity')
-const { generatorAddFeature } = require('./generators/add-feature')
-const { generatorAddPage } = require('./generators/add-page')
-const { generatorAddSegment } = require('./generators/add-segment')
-const { generatorAddShared } = require('./generators/add-shared')
-const { generatorAddWidget } = require('./generators/add-widget')
+import { generatorAddSegment } from './generators/add-segment/add-segment.js'
+import { generatorAddEntity } from './generators/add-entity/add-entity.js'
+import { generatorAddFeature } from './generators/add-feature/add-feature.js'
+import { generatorAddWidget } from './generators/add-widget/add-widget.js'
+import { generatorAddPage } from './generators/add-page/add-page.js'
+import { generatorAddShared } from './generators/add-shared/add-shared.js'
 
-module.exports = function (plop) {
+export default function (plop) {
   plop.setWelcomeMessage('[FSD-codegen] Please choose a generator')
-
   generatorAddSegment(plop)
   generatorAddEntity(plop)
   generatorAddFeature(plop)

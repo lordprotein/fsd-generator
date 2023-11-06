@@ -9,7 +9,7 @@
     "README.md",
     "bin/*"
   ],
-  "type": "commonjs",
+  "type": "module",
   "author": "lordprotein",
   "license": "MIT",
   "scripts": {
@@ -19,6 +19,7 @@
     "fsdgen": "./bin/start.js"
   },
   "dependencies": {
+    "inquirer-file-tree-selection-prompt": "^2.0.5",
     "plop": "^4.0.0"
   },
   "devDependencies": {

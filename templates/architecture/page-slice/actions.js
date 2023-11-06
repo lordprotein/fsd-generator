@@ -1,8 +1,9 @@
-const { getRootPath } = require('../../../utils/get-root-path')
+import { getRootPath } from '../../../utils/get-root-path/get-root-path.js'
+
 const sliceName = `kebabCase sliceName`
 const componentTypeName = `Page{{@pascalCase sliceName}}Props`
 
-module.exports.PAGE_ACTIONS = [
+export const PAGE_ACTIONS = [
   {
     type: 'add',
     path: `${getRootPath()}/{{layerFolder}}/{{${sliceName}}}/ui/{{${sliceName}}}/{{${sliceName}}}.tsx`,

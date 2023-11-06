@@ -1,6 +1,8 @@
-const { getRootPath } = require('../../utils/get-root-path')
+import { getRootPath } from '../../utils/get-root-path/get-root-path.js'
 
-const generatorAddShared = (/** @type {import('plop').NodePlopAPI} */ plop) => {
+export const generatorAddShared = (
+  /** @type {import('plop').NodePlopAPI} */ plop
+) => {
   plop.setGenerator('shared-segment', {
     description: 'add new shared segment instance',
     prompts: [
@@ -62,5 +64,3 @@ const generatorAddShared = (/** @type {import('plop').NodePlopAPI} */ plop) => {
     }
   })
 }
-
-module.exports = { generatorAddShared }

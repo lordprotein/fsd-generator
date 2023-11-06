@@ -1,7 +1,7 @@
-const fs = require('fs')
-const path = require('path')
+import fs from "fs";
+import path from "path";
 
-const findSliceFolder = function (folder, targetFolder) {
+export const findSliceFolder = function (folder, targetFolder) {
   // Получаем список элементов в папке
   const items = fs.readdirSync(folder)
 
@@ -29,4 +29,3 @@ const findSliceFolder = function (folder, targetFolder) {
   throw Error('Please, write exist name')
 }
 
-module.exports = { findSliceFolder }

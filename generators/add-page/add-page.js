@@ -1,8 +1,8 @@
-const {
-  PAGE_ACTIONS
-} = require('../../templates/architecture/page-slice/actions')
+import { PAGE_ACTIONS } from '../../templates/architecture/page-slice/actions.js'
 
-const generatorAddPage = (/** @type {import('plop').NodePlopAPI} */ plop) => {
+export const generatorAddPage = (
+  /** @type {import('plop').NodePlopAPI} */ plop
+) => {
   plop.setGenerator('page-slice', {
     description: 'add new page slice instance',
     prompts: [
@@ -33,5 +33,3 @@ const generatorAddPage = (/** @type {import('plop').NodePlopAPI} */ plop) => {
     }
   })
 }
-
-module.exports = { generatorAddPage }

@@ -1,6 +1,6 @@
-const { getRootPath } = require('../../../utils/get-root-path')
+import { getRootPath } from '../../../utils/get-root-path/get-root-path.js'
 
-exports.ENTITY_ACTIONS = ({ fileName, layerName }) => [
+export const ENTITY_ACTIONS = ({ fileName, layerName }) => [
   {
     type: 'add',
     path: `${getRootPath()}/${layerName}/${fileName}/ui/${fileName}/${fileName}.tsx`,

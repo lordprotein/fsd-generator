@@ -1,14 +1,23 @@
-const { readFileSync } = require('fs')
+import fs from 'fs'
 
-const { findSliceFolder } = require('../../utils/find-slice-folder')
-const { getRootPath } = require('../../utils/get-root-path')
+// eslint-disable-next-line import/no-unresolved
+import inquirerFileTreeSelection from 'inquirer-file-tree-selection-prompt'
 
-const generatorAddSegment = (
+import { findSliceFolder } from '../../utils/find-slice-folder/find-slice-folder.js'
+import { getRootPath } from '../../utils/get-root-path/get-root-path.js'
+
+export const generatorAddSegment = (
   /** @type {import('plop').NodePlopAPI} */ plop
 ) => {
+  plop.setPrompt('file-tree-selection', inquirerFileTreeSelection)
   plop.setGenerator('slice-segment', {
     description: 'add new segment (ui/lib/model) instance to selected slice',
     prompts: [
+      // {
+      //   type: 'file-tree-selection',
+      //   name: 'asd',
+      //   message: 'dadasas'
+      // },
       {
         type: 'list',
         name: 'layersList',
@@ -56,9 +65,11 @@ const generatorAddSegment = (
         default: 0,
         when: (answers) => {
           const path = `${answers.foundSlicePath}/index.ts`
-          const hasImport = readFileSync(path, 'utf8').includes(
-            `${plop.getHelper('camelCase')(answers.segmentListValue)}Model`
-          )
+          const hasImport = fs
+            .readFileSync(path, 'utf8')
+            .includes(
+              `${plop.getHelper('camelCase')(answers.segmentListValue)}Model`
+            )
           return !hasImport
         }
       }
@@ -206,5 +217,3 @@ const generatorAddSegment = (
     }
   })
 }
-
-module.exports = { generatorAddSegment }

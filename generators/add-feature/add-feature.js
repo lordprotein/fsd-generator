@@ -1,8 +1,6 @@
-const {
-  ENTITY_ACTIONS
-} = require('../../templates/architecture/general-slice/actions')
+import { ENTITY_ACTIONS } from '../../templates/architecture/general-slice/actions.js'
 
-const generatorAddFeature = (
+export const generatorAddFeature = (
   /** @type {import('plop').NodePlopAPI} */ plop
 ) => {
   plop.setGenerator('feature-slice', {
@@ -22,5 +20,3 @@ const generatorAddFeature = (
     }
   })
 }
-
-module.exports = { generatorAddFeature }
