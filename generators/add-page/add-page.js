@@ -9,7 +9,7 @@ export const generatorAddPage = (
       {
         type: 'input',
         name: 'sliceName',
-        message: 'Enter slice name:'
+        message: 'Enter new slice name:'
       }
       // {
       //   type: 'list',
