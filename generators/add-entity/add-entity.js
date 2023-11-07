@@ -11,7 +11,7 @@ export const generatorAddEntity = (
       {
         type: 'input',
         name: 'sliceName',
-        message: 'Enter slice name:'
+        message: 'Enter new slice name:'
       }
     ],
     actions: function () {

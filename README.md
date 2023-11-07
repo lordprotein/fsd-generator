@@ -14,6 +14,7 @@ Using yarn
 yarn add -D fsd-codegenerator
 ```
 
+>In your project, regardless of the package manager used (Yarn, npm, etc.), there must be a 'node_modules' folder. Currently, this is a mandatory requirement for the library to function
 
 ## Start
 
@@ -140,6 +141,8 @@ the generator will automatically create it.
 8. After completion, files will be created according to your choice
 
 
+## Support
+Lib required node_modules of root project
 
-TODO:
+#### TODO:
 * https://github.com/anc95/inquirer-file-tree-selection for select paths

@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from 'fs'
+import path from 'path'
 
 export const findSliceFolder = function (folder, targetFolder) {
   // Получаем список элементов в папке
@@ -28,4 +28,3 @@ export const findSliceFolder = function (folder, targetFolder) {
   // Совпадений не нашли - возвращаем false
   throw Error('Please, write exist name')
 }
-
