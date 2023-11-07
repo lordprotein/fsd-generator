@@ -1,8 +1,10 @@
-const {
-  ENTITY_ACTIONS
-} = require('../../templates/architecture/general-slice/actions')
+import { ENTITY_ACTIONS } from '../../templates/architecture/general-slice/actions.js'
 
-const generatorAddEntity = (/** @type {import('plop').NodePlopAPI} */ plop) => {
+export const generatorAddEntity = (
+  /** @type {import('plop').NodePlopAPI} */ plop
+) => {
+  console.log(plop.getPlopfilePath())
+
   plop.setGenerator('entity-slice', {
     description: 'add new entity slice instance',
     prompts: [
@@ -11,16 +13,13 @@ const generatorAddEntity = (/** @type {import('plop').NodePlopAPI} */ plop) => {
         name: 'sliceName',
         message: 'Enter slice name:'
       }
-
-      //Add with store
     ],
     actions: function () {
       return ENTITY_ACTIONS({
         fileName: `{{kebabCase sliceName}}`,
-        layerName: `entities`
+        layerName: `entities`,
+        rootPath: plop.getPlopfilePath()
       })
     }
   })
 }
-
-module.exports = { generatorAddEntity }

@@ -1,8 +1,6 @@
-const {
-  ENTITY_ACTIONS
-} = require('../../templates/architecture/general-slice/actions')
+import { ENTITY_ACTIONS } from '../../templates/architecture/general-slice/actions.js'
 
-const generatorAddFeature = (
+export const generatorAddFeature = (
   /** @type {import('plop').NodePlopAPI} */ plop
 ) => {
   plop.setGenerator('feature-slice', {
@@ -17,10 +15,9 @@ const generatorAddFeature = (
     actions: function () {
       return ENTITY_ACTIONS({
         fileName: `{{kebabCase sliceName}}`,
-        layerName: `features`
+        layerName: `features`,
+        rootPath: plop.getPlopfilePath()
       })
     }
   })
 }
-
-module.exports = { generatorAddFeature }

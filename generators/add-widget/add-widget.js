@@ -1,8 +1,8 @@
-const {
-  ENTITY_ACTIONS
-} = require('../../templates/architecture/general-slice/actions')
+import { ENTITY_ACTIONS } from '../../templates/architecture/general-slice/actions.js'
 
-const generatorAddWidget = (/** @type {import('plop').NodePlopAPI} */ plop) => {
+export const generatorAddWidget = (
+  /** @type {import('plop').NodePlopAPI} */ plop
+) => {
   plop.setGenerator('widget-slice', {
     description: 'add new Widget slice instance',
     prompts: [
@@ -20,5 +20,3 @@ const generatorAddWidget = (/** @type {import('plop').NodePlopAPI} */ plop) => {
     }
   })
 }
-
-module.exports = { generatorAddWidget }
